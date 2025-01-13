@@ -9,6 +9,7 @@
 const express = require('express');
 const session = require('express-session');
 const nunjucks = require('nunjucks');
+const path = require('path');
 
 // Simulamos así la base de datos de usuarios registrados
 const usuarios = [
@@ -36,7 +37,7 @@ let rol = (rol) => {
 
 let app = express();
 
-nunjucks.configure('views', {
+nunjucks.configure(path.join(__dirname, 'views'), {
     autoescape: true,
     express: app
 });
